@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vikunja
+  namespace: argocd
+spec:
+  source:
+    repoURL: https://github.com/SalmanIsha/homelab.git
+    path: vikunja
+    targetRevision: main
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: vikunja
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
