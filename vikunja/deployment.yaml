@@ -34,11 +34,11 @@ spec:
               value: "http://vikunja.salmanisha.com" 
             # Log optmization
             - name: VIKUNJA_LOG_HTTP
-              value: off       # Disables high-volume traffic logs
+              value: "off"       # Disables high-volume traffic logs
             - name: VIKUNJA_LOG_LEVEL
-              value: ERROR   # Only captures warnings/errors
+              value: "ERROR"   # Only captures warnings/errors
             - name: VIKUNJA_LOG_STANDARD
-              value: stdout # Pushes directly to the Docker engine
+              value: "stdout" # Pushes directly to the Docker engine
             # Resource Allocations sized for Homelab usage
           resources:
             requests:
