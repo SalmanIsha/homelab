@@ -113,33 +113,6 @@ spec:
 
 ---
 
-## 2. Ingress Manifest (`vikunja-ingress.yaml`)
-
-This routes local network requests from `pm.salman.com` into your cluster service. Note that you must point your local DNS server (e.g., Pi-hole, AdGuard Home, or router) to resolve `pm.salman.com` to your Kubernetes cluster's local IP address.
-
-```yaml
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: vikunja-ingress
-  annotations:
-    kubernetes.io/ingress.class: nginx
-spec:
-  rules:
-    - host: pm.salman.com # Configured domain for your home network
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: vikunja
-                port:
-                  number: 3456
-```
-
----
-
 ## 3. Quick Reference Architecture Notes
 
 Even in a **single-replica (replicas: 1)** infrastructure, configuring individual probes is critical to protect your deployment:

@@ -1,0 +1,9 @@
+my-terraform-project/
+├── terraform.tf     # CLI versions and required_providers blocks
+├── providers.tf     # Active provider configurations (credentials, regions)
+├── backend.tf       # Remote state settings (S3, Azure Blob, Terraform Cloud)
+├── main.tf          # Core infrastructure resources or module calls
+├── variables.tf     # Declarations of input variables
+├── outputs.tf       # Declarations of output values
+├── locals.tf        # Reusable local expressions
+└── terraform.tfvars # Actual values for variables (DO NOT commit secrets!)

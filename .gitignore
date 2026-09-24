@@ -1,0 +1,6 @@
+vikunja_api_token
+terraform.tfvars
+.terraform
+.terraform.*
+*.tfstate
+.DS_Store

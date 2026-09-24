@@ -1,0 +1,15 @@
+services:
+  devops-box:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: devops-box
+    container_name: devops-box
+    stdin_open: true
+    tty: true
+    working_dir: /workspace
+    volumes:
+      - ${WORKSPACE_DIR:-.}:/workspace
+      #- ${HOME}/.aws:/root/.aws:ro
+      #- ${HOME}/.ssh:/root/.ssh:ro
+    command: ["/bin/bash"]
