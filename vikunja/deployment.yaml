@@ -79,4 +79,4 @@ spec:
       volumes:
         - name: vikunja-data
           persistentVolumeClaim:
-            claimName: vikunja-data-pvc
+            claimName: vikunja-data-pvc-lh

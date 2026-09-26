@@ -1,10 +1,23 @@
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: vikunja-data-pvc
+# spec:
+#   accessModes:
+#     - ReadWriteOnce
+#   resources:
+#     requests:
+#       storage: 5Gi
+
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: vikunja-data-pvc
+  name: vikunja-data-pvc-lh
+  namespace: vikunja
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: longhorn    # New storage class
   resources:
     requests:
-      storage: 5Gi
+      storage: 5Gi             # Same or larger than original
