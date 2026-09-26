@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ghost
+  namespace: blog
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ghost
+  template:
+    metadata:
+      labels:
+        app: ghost
+    spec:
+      containers:
+      - name: ghost
+        image: ghost:6.56.0-alpine
+        ports:
+        - containerPort: 2368
+
+        envFrom:
+        - secretRef:
+            name: ghost-env
+
+        volumeMounts:
+        - name: ghost-storage
+          mountPath: /var/lib/ghost/content
+
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "256Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+
+      volumes:
+      - name: ghost-storage
+        persistentVolumeClaim:
+          claimName: ghost-content-lh
