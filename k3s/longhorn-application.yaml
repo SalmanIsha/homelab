@@ -32,6 +32,11 @@ spec:
               custom-annotation: "value"
           preUpgradeChecker:
             jobEnabled: false
+          metrics:
+            serviceMonitor:
+              enabled: true
+              additionalLabels:
+                release: prometheus
           
   destination:
     server: https://kubernetes.default.svc
