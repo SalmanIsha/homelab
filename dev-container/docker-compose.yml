@@ -3,6 +3,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    environment:
+      - AWS_ACCESS_KEY_ID=${OCI_ACCESS_KEY}
+      - AWS_SECRET_ACCESS_KEY=${OCI_SECRET_KEY}
+      - AWS_DEFAULT_REGION=eu-frankfurt-1
+      - AWS_REQUEST_CHECKSUM_CALCULATION=WHEN_REQUIRED
+      - AWS_RESPONSE_CHECKSUM_VALIDATION=WHEN_REQUIRED
     image: devops-box
     container_name: devops-box
     stdin_open: true

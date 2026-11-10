@@ -1,3 +1,5 @@
+
+
 # Configuration optimized for K3s clusters with resource optimization and high-availability distribution
 global:
   scrape_interval: 60s
